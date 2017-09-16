@@ -1,4 +1,3 @@
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,15 +18,16 @@ public class S3MainPage {
     public S3MainPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-
     }
 
+    public S3MainPage unHideSearchBox() {
+        searchButton.click();
+        return this;
+    }
 
     public ResultPage searchForTerm(String term) {
-        searchButton.click();
         searchTextBox.sendKeys("Test automation");
         searchButton.click();
         return new ResultPage(driver);
     }
-
 }

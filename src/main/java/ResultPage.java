@@ -10,7 +10,7 @@ public class ResultPage {
 
     private WebDriver driver;
 
-    @FindBy(css = "a")
+    @FindBy(css = "p.title")
     List<WebElement> results;
 
 
@@ -20,9 +20,8 @@ public class ResultPage {
     }
 
     public boolean checkIFResultsContaintText(String searchedTerm) {
-        int resultCounter = 0;
-        for (WebElement e : results) {
-            if (e.getAttribute("text").toLowerCase().contains("test automation")) return true;
+        for (WebElement result : results) {
+           if (result.getText().toLowerCase().contains("test automation")) return true;
         }
         return false;
     }
