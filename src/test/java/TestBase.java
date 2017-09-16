@@ -4,18 +4,30 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
 
     public WebDriver driver;
-    String baseURL = "https://www.s3group.com/";
+    String file = "testConfiguration.properties";
+    String baseURL;
 
     @Before
     public void setup() {
 
-//        String driverType = "firefox";
-        String driverType = "chrome";
+        Properties properties = new Properties();
+
+        try (InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(file)) {
+            properties.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        String driverType = properties.getProperty("BROWSER");
+        baseURL = properties.getProperty("ENV");
 
         switch (driverType) {
 
@@ -32,7 +44,6 @@ public class TestBase {
             default:
                 this.driver = new FirefoxDriver();
         }
-
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         driver.get(baseURL);
