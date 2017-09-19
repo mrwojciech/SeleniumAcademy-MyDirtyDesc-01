@@ -10,12 +10,14 @@ import java.io.InputStream;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class TestBase {
 
     public WebDriver driver;
+    public WebDriverWait wait;
     String file = "testConfiguration.properties";
     String baseURL;
     private final Logger log = LoggerFactory.getLogger(TestBase.class);
@@ -54,8 +56,10 @@ public class TestBase {
                 this.driver = new FirefoxDriver();
         }
         log.info("Initiating driver: {}", driverType);
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        log.info("Set implicide time to : {}" + 5);
+        wait = new WebDriverWait(driver, 5);
+        log.info("Set explicide time to : {}" + 5);
+//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        log.info("Set implicide time to : {}" + 5);
         driver.get(baseURL);
         log.info("Navigating to Home page: {}", baseURL);
 
