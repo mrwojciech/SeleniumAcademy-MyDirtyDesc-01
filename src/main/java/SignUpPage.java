@@ -5,13 +5,15 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+
 public class SignUpPage {
     WebDriver driver;
-    public WebDriverWait wait;
+    WebDriverWait wait;
 
     private final Logger log = LoggerFactory.getLogger(SignUpPage.class);
 
@@ -63,14 +65,16 @@ public class SignUpPage {
 
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
+        wait = new WebDriverWait(driver , 5);
         log.info("Creating SignUpPage object");
         PageFactory.initElements(driver, this);
         log.info("Initiating the PageFactory for SignUpPage");
         wait = new WebDriverWait(driver, 5);
-
     }
 
     public SignUpPage closeCoockiePopup() {
+        wait.until(ExpectedConditions.elementToBeClickable(cookieOk));
+        log.info("Wait till the element is clicable");
         cookieOk.click();
         log.info("Closing the cookie popup");
         return this;
@@ -94,74 +98,101 @@ public class SignUpPage {
     }
 
     public void selectCountry(int i) {
-        countryComboBox.get(10).click();
+        wait.until(ExpectedConditions.elementToBeClickable(countryComboBox.get(i)));
+        log.info("Wait till the element is clicable");
+        countryComboBox.get(i).click();
         log.info("Selecting the country from combobox");
     }
 
     public void fillUpPhoneNo(String s) {
+        wait.until(ExpectedConditions.elementToBeClickable(phoneTextField));
+        log.info("Wait till the element is clicable");
         phoneTextField.sendKeys("222-333-444");
         log.info("Filling out the phone number");
     }
 
     public void fillUpCity(String wrocław) {
+        wait.until(ExpectedConditions.elementToBeClickable(cityTextField));
+        log.info("Wait till the element is clicable");
         cityTextField.sendKeys("Wrocław");
         log.info("Filling out the city");
     }
 
     public void fillUpStreetAddress(String muchobór_mały) {
+        wait.until(ExpectedConditions.elementToBeClickable(streetAddress2TextField));
+        log.info("Wait till the element is clicable");
         streetAddress2TextField.sendKeys("Fabryczna");
         log.info("Filling out the street address line two");
     }
 
     public void fillUpAddress2(String dolny_sląsk) {
+        wait.until(ExpectedConditions.elementToBeClickable(streetAddress1TextField));
+        log.info("Wait till the element is clicable");
         streetAddress1TextField.sendKeys("Dolny Sląsk");
         log.info("Filling out the street address");
     }
 
     public void fillUpAddress(String s) {
+        wait.until(ExpectedConditions.elementToBeClickable(adressTextField));
+        log.info("Wait till the element is clicable");
         adressTextField.sendKeys("Horbaczewskiego 6");
         log.info("Filling out the adress");
     }
 
     public void fillUpPasswordConf(String password) {
+        wait.until(ExpectedConditions.elementToBeClickable( (confirmPassTextField)));
+        log.info("Wait till the element is clicable");
         confirmPassTextField.sendKeys("niepodam");
         log.info("Filling out the password confirmation");
     }
 
     public void fillUpPassword(String password) {
+        wait.until(ExpectedConditions.elementToBeClickable( (passTextField)));
+        log.info("Wait till the element is clicable");
         passTextField.sendKeys("niepodam");
         log.info("Filling out the password");
     }
 
     public void fillUpEmail(String s) {
+        wait.until(ExpectedConditions.elementToBeClickable(emailTextField));
+        log.info("Wait till the element is clicable");
         emailTextField.sendKeys("wojtek@niepodam.pl");
         log.info("Filling out the email");
     }
 
     public void fillUpJobTitle(String engeener) {
+        wait.until(ExpectedConditions.elementToBeClickable(jobTitleTextField));
+        log.info("Wait till the element is clicable");
         jobTitleTextField.sendKeys("Testing");
         log.info("Filling out the Job Title");
     }
 
     public void fillUpCompanyName(String google) {
+        wait.until(ExpectedConditions.elementToBeClickable(companyTextField));
+        log.info("Wait till the element is clicable");
         companyTextField.sendKeys("google");
         log.info("Filling out the Company Name");
     }
 
     public void fillUpLastName(String nowak) {
+        wait.until(ExpectedConditions.elementToBeClickable(lastNameTextField));
+        log.info("Wait till the element is clicable");
         lastNameTextField.sendKeys("Nowak");
         log.info("Filling out the Last Name");
     }
 
     public void fillUpFirstName(String firstName) {
+        wait.until(ExpectedConditions.elementToBeClickable(firstNameTextField));
+        log.info("Wait till the element is clicable");
         firstNameTextField.sendKeys(firstName);
         log.info("Filling out the First Name");
     }
 
     public SuccessRegister clickRegisterButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(registerButton));
+        log.info("Wait till the element is clicable");
         registerButton.click();
         log.info("Clicking on the Register button");
         return new SuccessRegister(driver);
-
     }
 }

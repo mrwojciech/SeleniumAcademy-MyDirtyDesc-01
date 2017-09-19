@@ -56,7 +56,7 @@ public class TestBase {
                 this.driver = new FirefoxDriver();
         }
         log.info("Initiating driver: {}", driverType);
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 15);
         log.info("Set explicide time to : {}" + 5);
 //        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 //        log.info("Set implicide time to : {}" + 5);
