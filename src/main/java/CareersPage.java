@@ -1,3 +1,4 @@
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,8 +32,12 @@ public class CareersPage {
 
 
     public void checkIfPageIsPresent() {
-        wait.until(ExpectedConditions.elementToBeClickable(title));
-        log.info("Wait till the element is clicable");
+        try {
+            log.info("Wait till title appears:" + "Careers at S3 Group");
+            wait.until(ExpectedConditions.titleContains("Careers at S3 Group"));
+        } catch (TimeoutException e) {
+            log.error("Timeout exception - expected tile did not appear");
+        }
         assertEquals(title.getAttribute("text"), "Careers at S3 Group");
         log.info("Asserting the title of Careers Page");
     }

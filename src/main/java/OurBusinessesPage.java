@@ -1,3 +1,4 @@
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -29,9 +30,13 @@ public class OurBusinessesPage {
     }
 
     public void checkIfPageIsPresent() {
-        wait.until(ExpectedConditions.elementToBeClickable(title));
-        log.info("Wait till the element is clicable");
-        assertEquals(title.getAttribute("text"), "About Us - S3 Group");
+        try {
+            log.info("Wait till title appears:" + "Connected Consumer Technology Company | S3 Group");
+            wait.until(ExpectedConditions.titleContains("Connected Consumer Technology Company | S3 Group"));
+        } catch (TimeoutException e) {
+            log.error("Timeout exception - expected tile did not appear");
+        }
+        assertEquals(title.getAttribute("text"), "Connected Consumer Technology Company | S3 Group");
         log.info("Asserting the title of Our Business Page");
     }
 }

@@ -65,7 +65,7 @@ public class SignUpPage {
 
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver , 5);
+        wait = new WebDriverWait(driver, 5);
         log.info("Creating SignUpPage object");
         PageFactory.initElements(driver, this);
         log.info("Initiating the PageFactory for SignUpPage");
@@ -140,14 +140,14 @@ public class SignUpPage {
     }
 
     public void fillUpPasswordConf(String password) {
-        wait.until(ExpectedConditions.elementToBeClickable( (confirmPassTextField)));
+        wait.until(ExpectedConditions.elementToBeClickable((confirmPassTextField)));
         log.info("Wait till the element is clicable");
         confirmPassTextField.sendKeys("niepodam");
         log.info("Filling out the password confirmation");
     }
 
     public void fillUpPassword(String password) {
-        wait.until(ExpectedConditions.elementToBeClickable( (passTextField)));
+        wait.until(ExpectedConditions.elementToBeClickable((passTextField)));
         log.info("Wait till the element is clicable");
         passTextField.sendKeys("niepodam");
         log.info("Filling out the password");

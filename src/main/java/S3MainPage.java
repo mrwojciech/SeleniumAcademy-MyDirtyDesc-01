@@ -3,14 +3,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class S3MainPage  {
+public class S3MainPage {
 
     private WebDriver driver;
     public WebDriverWait wait;
@@ -31,7 +30,7 @@ public class S3MainPage  {
     @FindBy(id = "menu-item-653")
     private WebElement aboutButton;
 
-    @FindBy(id = "menu-item-653")
+    @FindBy(id = "menu-item-1098")
     private WebElement ourBusinessesButton;
 
     @FindBy(css = ".navbar-top > li:nth-child(1) > a:nth-child(1)")
@@ -94,7 +93,7 @@ public class S3MainPage  {
     public OurBusinessesPage goToOurBusinessesPage() {
         wait.until(ExpectedConditions.elementToBeClickable(aboutButton));
         log.info("Wait till the element is clicable");
-        aboutButton.click();
+        ourBusinessesButton.click();
         log.info("Clicking the Our Business Page link");
         return new OurBusinessesPage(driver);
     }

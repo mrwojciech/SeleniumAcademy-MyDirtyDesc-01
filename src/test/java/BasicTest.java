@@ -3,7 +3,6 @@ import org.junit.Test;
 
 public class BasicTest extends TestBase {
 
-
     S3MainPage s3MainPage;
 
     @Test
@@ -14,5 +13,4 @@ public class BasicTest extends TestBase {
                 .searchForTerm(searchTerm)
                 .checkIFResultsContainText(searchTerm);
     }
-
 }

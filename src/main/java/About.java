@@ -1,3 +1,4 @@
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,16 +21,20 @@ public class About {
 
     public About(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver , 5);
+        wait = new WebDriverWait(driver, 5);
         log.info("Initiating the About object");
         PageFactory.initElements(driver, this);
         log.info("Initiating PageFactory for object AboutPage.");
     }
 
     public void checkIfPageIsPresent() {
-        wait.until(ExpectedConditions.elementToBeClickable(title));
-        log.info("Wait till the element is clicable");
-        assertEquals(title.getAttribute("text"), " About Us- S3 Group");
+        try {
+            log.info("Wait till title appears:" + "About Us - S3 Group");
+            wait.until(ExpectedConditions.titleContains(" About Us- S3 Group"));
+        } catch (TimeoutException e) {
+            log.error("Timeout exception - expected tile did not appear");
+        }
+        assertEquals(title.getAttribute("text"), "About Us - S3 Group");
         log.info("Asserting the title of About Page");
     }
 }

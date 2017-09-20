@@ -13,8 +13,5 @@ public class SigningUpTest extends TestBase {
                 .fillUpAllWithRandomData()
                 .clickRegisterButton()
                 .isSuccessRegister();
-
-
     }
-
 }

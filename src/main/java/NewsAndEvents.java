@@ -1,3 +1,4 @@
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,15 +21,19 @@ public class NewsAndEvents {
 
     public NewsAndEvents(WebDriver driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver , 5);
+        wait = new WebDriverWait(driver, 5);
         log.info("Initiating the News And Events Page object");
         PageFactory.initElements(driver, this);
         log.info("Initiating PageFactory for object News And Events Page.");
     }
 
     public void checkIfPageIsPresent() {
-        wait.until(ExpectedConditions.elementToBeClickable(title));
-        log.info("Wait till the element is clicable");
+        try {
+            log.info("Wait till title appears:" + "S3 Group News & Events");
+            wait.until(ExpectedConditions.titleContains("S3 Group News & Events"));
+        } catch (TimeoutException e) {
+            log.error("Timeout exception - expected tile did not appear");
+        }
         assertEquals(title.getAttribute("text"), "S3 Group News & Events");
         log.info("Asserting the title of News And Events Page");
     }

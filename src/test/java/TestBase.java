@@ -39,6 +39,7 @@ public class TestBase {
         log.info("Set driver to : {} ", driverType);
         baseURL = properties.getProperty("ENV");
         log.info("Set baseURL to : {} ", baseURL);
+
         switch (driverType) {
 
             case "firefox":
@@ -58,11 +59,8 @@ public class TestBase {
         log.info("Initiating driver: {}", driverType);
         wait = new WebDriverWait(driver, 15);
         log.info("Set explicide time to : {}" + 5);
-//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-//        log.info("Set implicide time to : {}" + 5);
         driver.get(baseURL);
         log.info("Navigating to Home page: {}", baseURL);
-
     }
 
     @After
