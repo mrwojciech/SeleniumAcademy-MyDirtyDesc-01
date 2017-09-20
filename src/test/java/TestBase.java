@@ -58,7 +58,7 @@ public class TestBase {
         }
         log.info("Initiating driver: {}", driverType);
         wait = new WebDriverWait(driver, 15);
-        log.info("Set explicide time to : {}" + 5);
+        log.info("Set explicide time to : {}", 5);
         driver.get(baseURL);
         log.info("Navigating to Home page: {}", baseURL);
     }
