@@ -1,4 +1,8 @@
+package FunctionalTests;
+
+import com.s3group.PageObject.S3MainPage;
 import org.junit.Test;
+import setUp.TestBase;
 
 
 public class SigningUpTest extends TestBase {
@@ -7,7 +11,6 @@ public class SigningUpTest extends TestBase {
 
     @Test
     public void shouldRegister() {
-        s3MainPage = new S3MainPage(driver);
         s3MainPage.goToSignUpPage()
                 .closeCoockiePopup()
                 .fillUpAllWithRandomData()

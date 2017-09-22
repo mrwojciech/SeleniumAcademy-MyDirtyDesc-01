@@ -1,14 +1,13 @@
+package FunctionalTests;
+
 import org.junit.Test;
+import setUp.*;
+public class BasicTest extends TestBase  {
 
-
-public class BasicTest extends TestBase {
-
-    S3MainPage s3MainPage;
 
     @Test
     public void shouldFoundResultsSearchingForSearchTerm() {
         String searchTerm = "Test automation";
-        s3MainPage = new S3MainPage(driver);
         s3MainPage.unHideSearchBox()
                 .searchForTerm(searchTerm)
                 .checkIFResultsContainText(searchTerm);
