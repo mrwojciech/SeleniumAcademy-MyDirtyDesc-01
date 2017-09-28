@@ -54,7 +54,7 @@ public class SignUpPage extends BasePage {
     private WebElement cookieOk;
 
     public SignUpPage closeCoockiePopup() {
-        waitTillIsClicable(cookieOk);
+        waitTillIsClickable(cookieOk);
         log.info("Wait till the element is clicable");
         cookieOk.click();
         log.info("Closing the cookie popup");
@@ -80,7 +80,7 @@ public class SignUpPage extends BasePage {
     }
 
     public SignUpPage selectCountry(int countryId) {
-        waitTillIsClicable(countryComboBox.get(countryId));
+        waitTillIsClickable(countryComboBox.get(countryId));
         log.info("Wait till the element is clicable");
         countryComboBox.get(countryId).click();
         log.info("Selecting the country from combobox");
@@ -88,91 +88,91 @@ public class SignUpPage extends BasePage {
     }
 
     public SignUpPage fillUpPhoneNo(String phoneNumber) {
-        waitTillIsClicable(phoneTextField);
+        waitTillIsClickable(phoneTextField);
         log.info("Wait till the element is clicable");
         phoneTextField.sendKeys(phoneNumber);
         log.info("Filling out the phone number");
         return this;}
 
     public SignUpPage fillUpCity(String city) {
-        waitTillIsClicable(cityTextField);
+        waitTillIsClickable(cityTextField);
         log.info("Wait till the element is clicable");
         cityTextField.sendKeys(city);
         log.info("Filling out the city");
         return this;}
 
     public SignUpPage fillUpStreetAddress(String town) {
-        waitTillIsClicable(streetAddress2TextField);
+        waitTillIsClickable(streetAddress2TextField);
         log.info("Wait till the element is clicable");
         streetAddress2TextField.sendKeys(town);
         log.info("Filling out the street address line two");
         return this;}
 
     public SignUpPage fillUpAddress2(String area) {
-        waitTillIsClicable(streetAddress1TextField);
+        waitTillIsClickable(streetAddress1TextField);
         log.info("Wait till the element is clicable");
         streetAddress1TextField.sendKeys(area);
         log.info("Filling out the street address");
         return this;}
 
     public SignUpPage fillUpAddress(String street) {
-        waitTillIsClicable(adressTextField);
+        waitTillIsClickable(adressTextField);
         log.info("Wait till the element is clicable");
         adressTextField.sendKeys(street);
         log.info("Filling out the adress");
         return this;}
 
     public SignUpPage fillUpPasswordConf(String password) {
-        waitTillIsClicable(confirmPassTextField);
+        waitTillIsClickable(confirmPassTextField);
         log.info("Wait till the element is clicable");
         confirmPassTextField.sendKeys(password);
         log.info("Filling out the password confirmation");
         return this;}
 
     public SignUpPage fillUpPassword(String confirmPassword) {
-        waitTillIsClicable(passTextField);
+        waitTillIsClickable(passTextField);
         log.info("Wait till the element is clicable");
         passTextField.sendKeys(confirmPassword);
         log.info("Filling out the password");
         return this;}
 
     public SignUpPage fillUpEmail(String email) {
-        waitTillIsClicable(emailTextField);
+        waitTillIsClickable(emailTextField);
         log.info("Wait till the element is clicable");
         emailTextField.sendKeys(email);
         log.info("Filling out the email");
         return this;}
 
     public SignUpPage fillUpJobTitle(String jobTitle) {
-        waitTillIsClicable(jobTitleTextField);
+        waitTillIsClickable(jobTitleTextField);
         log.info("Wait till the element is clicable");
         jobTitleTextField.sendKeys(jobTitle);
         log.info("Filling out the Job Title");
         return this;}
 
     public SignUpPage fillUpCompanyName(String companyName) {
-        waitTillIsClicable(companyTextField);
+        waitTillIsClickable(companyTextField);
         log.info("Wait till the element is clicable");
         companyTextField.sendKeys(companyName);
         log.info("Filling out the Company Name");
         return this;}
 
     public SignUpPage fillUpLastName(String lastName) {
-        waitTillIsClicable(lastNameTextField);
+        waitTillIsClickable(lastNameTextField);
         log.info("Wait till the element is clicable");
         lastNameTextField.sendKeys(lastName);
         log.info("Filling out the Last Name");
         return this;    }
 
     public SignUpPage fillUpFirstName(String firstName) {
-        waitTillIsClicable(firstNameTextField);
+        waitTillIsClickable(firstNameTextField);
         log.info("Wait till the element is clicable");
         firstNameTextField.sendKeys(firstName);
         log.info("Filling out the First Name");
         return this; }
 
     public SuccessRegister clickRegisterButton() {
-        waitTillIsClicable(registerButton);
+        waitTillIsClickable(registerButton);
         log.info("Wait till the element is clicable");
         registerButton.click();
         log.info("Clicking on the Register button");

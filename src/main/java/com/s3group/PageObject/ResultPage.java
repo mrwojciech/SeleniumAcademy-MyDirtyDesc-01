@@ -12,7 +12,7 @@ public class ResultPage extends BasePage {
     private List<WebElement> results;
 
     public boolean checkIFResultsContainText(String searchedTerm) {
-        waitTillIsClicable(results.get(0));
+        waitTillIsClickable(results.get(0));
         log.info("Wait till the element is clicable");
         for (WebElement result : results) {
             if (result.getText().toLowerCase().contains("test automation")) return true;

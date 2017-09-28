@@ -13,7 +13,7 @@ public class MyWaits extends MyLogger{
         return wait.ignoring(TimeoutException.class).until(ExpectedConditions.titleContains(textTile));
     }
 
-    public void waitTillIsClicable(WebElement element) {
+    public void waitTillIsClickable(WebElement element) {
         wait.ignoring(TimeoutException.class).until(ExpectedConditions.elementToBeClickable(element));
     }
 }

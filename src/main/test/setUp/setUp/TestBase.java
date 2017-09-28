@@ -6,25 +6,24 @@ import com.s3group.Utils.MyProperties;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import static com.s3group.Utils.MyDriver.getDriver;
+import static com.s3group.Utils.MyProperties.getBaseURL;
+
 
 public class TestBase extends MyLogger {
 
     public S3MainPage s3MainPage;
     public WebDriver driver;
-    public WebDriverWait wait;
 
     @Before
     public void setupDriver() {
 
         this.driver = getDriver();
-        //TODO podpiac fabryke z MyDirver instaanitiate
+        //TODO podpiac fabryke z MyDirver instantiate
         log.info("Initiating driver: {}", MyProperties.getBrowser());
         log.info("Set explicit time to : {}", 5);
-        driver.get(MyProperties.getBaseURL());
-        log.info("Navigating to Home page: {}", MyProperties.getBaseURL());
+        driver.get(getBaseURL());
+        log.info("Navigating to Home page: {}", getBaseURL());
         s3MainPage = new S3MainPage();
     }
 
