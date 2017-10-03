@@ -19,7 +19,6 @@ public class TestBase extends MyLogger {
     public void setupDriver() {
 
         this.driver = getDriver();
-        //TODO podpiac fabryke z MyDirver instantiate
         log.info("Initiating driver: {}", MyProperties.getBrowser());
         log.info("Set explicit time to : {}", 5);
         driver.get(getBaseURL());

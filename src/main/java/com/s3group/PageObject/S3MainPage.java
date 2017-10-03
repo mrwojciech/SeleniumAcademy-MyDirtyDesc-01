@@ -30,28 +30,28 @@ public class S3MainPage extends BasePage {
 
 
     public S3MainPage unHideSearchBox() {
-        wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(searchButton);
+        log.info("Wait till the element is clickable");
         searchButton.click();
         log.info("Clicking on the search Button");
         return this;
     }
 
     public ResultPage searchForTerm(String searchedTerm) {
-        wait.until(ExpectedConditions.elementToBeClickable(searchTextBox));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(searchTextBox);
+        log.info("Wait till the element is clickable");
         searchTextBox.sendKeys(searchedTerm);
         log.info("Filling the search term: {} into the search box", searchedTerm);
-        wait.until(ExpectedConditions.elementToBeClickable(searchButton));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(searchButton);
+        log.info("Wait till the element is clickable");
         searchButton.click();
         log.info("Clicking the search button");
         return new ResultPage();
     }
 
     public CareersPage goToCareersPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(careersButton));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(careersButton);
+        log.info("Wait till the element is clickable");
         careersButton.click();
         log.info("Clicking the Careers Page link");
         return new CareersPage();
@@ -59,32 +59,32 @@ public class S3MainPage extends BasePage {
     }
 
     public NewsAndEvents goToNewAndEventsPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(newsAndEventsButton));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(newsAndEventsButton);
+        log.info("Wait till the element is clickable");
         newsAndEventsButton.click();
         log.info("Clicking the News And Events Page link");
         return new NewsAndEvents();
     }
 
     public About goToAboutPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(aboutButton));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(aboutButton);
+        log.info("Wait till the element is clickable");
         aboutButton.click();
         log.info("Clicking the PageObject.About Page link");
         return new About();
     }
 
     public OurBusinessesPage goToOurBusinessesPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(aboutButton));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(aboutButton);
+        log.info("Wait till the element is clickable");
         ourBusinessesButton.click();
         log.info("Clicking the Our Business Page link");
         return new OurBusinessesPage();
     }
 
     public SignUpPage goToSignUpPage() {
-        wait.until(ExpectedConditions.elementToBeClickable(signUpButton));
-        log.info("Wait till the element is clicable");
+        waitTillIsClickable(signUpButton);
+        log.info("Wait till the element is clickable");
         signUpButton.click();
         log.info("Clicking the Sign Up Page link");
         return new SignUpPage();

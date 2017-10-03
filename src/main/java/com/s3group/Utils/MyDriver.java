@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class MyDriver {
 
-    private static WebDriver driver = null;
+    private static WebDriver driver ;
     private static Logger log = LoggerFactory.getLogger(MyDriver.class);
 
     private MyDriver() {

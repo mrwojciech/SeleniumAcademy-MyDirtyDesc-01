@@ -7,15 +7,16 @@ import org.openqa.selenium.support.FindBy;
 import static org.junit.Assert.assertEquals;
 
 public class CareersPage extends BasePage {
-
+    private String CAREERS_TITLE = "Careers at S3 Group";
     @FindBy(css = "title")
     private WebElement title;
 
 
     public void checkIfPageIsPresent() {
-        waitUntilTitleIsPresent("Careers at S3 Group");
-        log.info("Wait till title appears:" + "Careers at S3 Group");
-        assertEquals(title.getAttribute("text"), "Careers at S3 Group");
+
+        waitUntilTitleIsPresent(CAREERS_TITLE);
+        log.info("Wait till title appears:" + CAREERS_TITLE);
+        assertEquals(title.getAttribute("text"), CAREERS_TITLE);
         log.info("Asserting the title of Careers Page");
     }
 }
