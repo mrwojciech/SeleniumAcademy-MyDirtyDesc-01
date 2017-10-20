@@ -4,10 +4,9 @@ import com.s3group.PageObject.S3MainPage;
 import com.s3group.Utils.MyDriver;
 import com.s3group.Utils.MyLogger;
 import com.s3group.Utils.MyProperties;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.*;
+
 import org.openqa.selenium.WebDriver;
 import static com.s3group.Utils.MyDriver.getDriver;
 import static com.s3group.Utils.MyProperties.getBaseURL;
@@ -24,7 +23,7 @@ public class TestBase extends MyLogger {
     MyDriver.getDriver();
 
     }
-    @Before
+    @BeforeTest
     public void setupDriver() {
         this.driver = getDriver();
         log.info("Initiating driver: {}", MyProperties.getBrowser());
@@ -34,7 +33,7 @@ public class TestBase extends MyLogger {
         s3MainPage = new S3MainPage();
     }
 
-    @After
+    @AfterTest
     public void tearDownDriver() {
 
         log.info("Closing the driver");

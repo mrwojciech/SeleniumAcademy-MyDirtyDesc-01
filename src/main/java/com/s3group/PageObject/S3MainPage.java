@@ -4,11 +4,14 @@ import com.s3group.BasePage.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import com.s3group.MyWebElements.*;
 
 public class S3MainPage extends BasePage {
 
     @FindBy(className = "btn")
     private WebElement searchButton;
+//    private Button searchButton;
+//TODO why it is not workin above!?
 
     @FindBy(id = "search-term")
     private WebElement searchTextBox;

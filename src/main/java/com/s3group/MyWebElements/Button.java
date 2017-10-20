@@ -4,7 +4,8 @@ import org.openqa.selenium.*;
 
 import java.util.List;
 
-public class Link implements WebElement {
+public class Button implements WebElement {
+
     @Override
     public void click() {
 

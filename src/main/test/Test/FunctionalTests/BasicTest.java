@@ -1,8 +1,10 @@
 package FunctionalTests;
 
-import org.junit.Test;
-import setUp.*;
+import org.testng.annotations.Test;
+import setUp.TestBase;
 public class BasicTest extends TestBase  {
+
+
 
 
     @Test

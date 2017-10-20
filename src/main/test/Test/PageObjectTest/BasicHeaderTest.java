@@ -1,6 +1,6 @@
 package PageObjectTest;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import setUp.TestBase;
 
 public class BasicHeaderTest extends TestBase {

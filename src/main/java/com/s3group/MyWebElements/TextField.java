@@ -4,7 +4,7 @@ import org.openqa.selenium.*;
 
 import java.util.List;
 
-public class Link implements WebElement {
+public class TextField implements WebElement {
     @Override
     public void click() {
 

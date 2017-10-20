@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import static org.junit.Assert.assertEquals;
-
 public class About extends BasePage {
     private String ABOUT_US_TITLE = "About Us - S3 Group";
 
