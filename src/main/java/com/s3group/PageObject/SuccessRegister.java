@@ -6,6 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
 
 public class SuccessRegister extends BasePage {
     private String CONFIRMATION = "Your account has been successfully activated." +
@@ -16,9 +19,7 @@ public class SuccessRegister extends BasePage {
 
     public void isSuccessRegister() {
         waitTillIsClickable(popup);
-        log.info("Wait till the element is clicable");
-
-        assertEquals(popup.getText(), CONFIRMATION);
+        assertThat(popup.getText(), is(equalTo((CONFIRMATION))));
         log.info("Asserting the successful registration");
     }
 }

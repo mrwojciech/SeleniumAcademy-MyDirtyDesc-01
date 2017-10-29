@@ -6,26 +6,27 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MyDriver {
+public class Driver {
+
 
     private static WebDriver driver;
-    private static Logger log = LoggerFactory.getLogger(MyDriver.class);
+    private static Logger log = LoggerFactory.getLogger(Driver.class);
 
-    private MyDriver() {
+    private Driver() {
     }
 
     public static WebDriver getDriver() {
+        log.info("Initiating driver: {}", Properties.getBrowser());
         if (driver == null) {
             driver = instantiate();
         }
         log.info("Getting the driver");
         return driver;
     }
-
+//todo DAC do oddzielnej klasy settingsy do drivera
     private static WebDriver instantiate() {
-        String driverType = MyProperties.getBrowser();
+        String driverType = Properties.getBrowser();
         switch (driverType) {
-
             case "firefox":
                 System.setProperty("webdriver.gecko.driver", "./src/main/resources/geckodriver.exe");
                 driver = new FirefoxDriver();
@@ -43,6 +44,12 @@ public class MyDriver {
         log.info("Initiating the driver");
         driver.manage().window().maximize();
         log.info("Maximizing browser window");
+        return driver;
+    }
+
+
+    public static WebDriver setToNull(){
+        driver = null;
         return driver;
     }
 }

@@ -1,48 +1,61 @@
 package setUp;
 
-import com.s3group.PageObject.S3MainPage;
-import com.s3group.Utils.MyDriver;
+import com.s3group.Utils.Driver;
 import com.s3group.Utils.MyLogger;
-import com.s3group.Utils.MyProperties;
-import org.testng.annotations.BeforeClass;
+import com.s3group.Utils.Properties;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
-import org.openqa.selenium.WebDriver;
-import static com.s3group.Utils.MyDriver.getDriver;
-import static com.s3group.Utils.MyProperties.getBaseURL;
+import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
+
+import static com.s3group.Utils.Properties.getBaseURL;
 
 
 public class TestBase extends MyLogger {
 
-    public S3MainPage s3MainPage;
-    public WebDriver driver;
 
+    private int EXPLICITE_TIME_MAX_WAIT;
 
     @BeforeClass
-    public static void startDriver(){
-    MyDriver.getDriver();
-
+    public  void startDriver() {
+        Driver.getDriver();
+        log.info("Initiating driver: {}", Properties.getBrowser());
+        Driver.getDriver().get(getBaseURL());
+        log.info("Navigating to Home page: {}", getBaseURL());
     }
+
     @BeforeTest
     public void setupDriver() {
-        this.driver = getDriver();
-        log.info("Initiating driver: {}", MyProperties.getBrowser());
-        log.info("Set explicit time to : {}", 5);
-        driver.get(getBaseURL());
+        EXPLICITE_TIME_MAX_WAIT = 5;
+        log.info("Set explicit time to : {}", EXPLICITE_TIME_MAX_WAIT);
+        Driver.getDriver().get(getBaseURL());
         log.info("Navigating to Home page: {}", getBaseURL());
-        s3MainPage = new S3MainPage();
     }
 
     @AfterTest
     public void tearDownDriver() {
-
         log.info("Closing the driver");
-
     }
 
+    @AfterMethod
+    public void takeScreenShotOnFailure(ITestResult testResult) throws IOException {
+        if (testResult.getStatus() == ITestResult.FAILURE) {
+            File scrFile = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile, new File("errorScreenshots\\" + testResult.getName() + "-"
+                    + Arrays.toString(testResult.getParameters()) + ".jpg"));
+        }
+    }
+
+
     @AfterClass
-    public static void quitDriver(){
-        MyDriver.getDriver().close();
-        MyDriver.getDriver().quit();
+    public void quitDriver() {
+        Driver.getDriver().close();
+        Driver.getDriver().quit();
+        Driver.setToNull();
     }
 }

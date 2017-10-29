@@ -70,7 +70,7 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage closeCoockiePopup() {
         waitTillIsClickable(cookieOk);
-        log.info("Wait till the element is clickable");
+        
         cookieOk.click();
         log.info("Closing the cookie popup");
         return this;
@@ -98,7 +98,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage selectCountry(int countryId) {
         waitTillIsClickable(countryComboBox.get(countryId));
-        log.info("Wait till the element is clickable");
         countryComboBox.get(countryId).click();
         log.info("Selecting the country from combobox");
         return this;
@@ -106,7 +105,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpPhoneNo(String phoneNumber) {
         waitTillIsClickable(phoneTextField);
-        log.info("Wait till the element is clickable");
         phoneTextField.sendKeys(phoneNumber);
         log.info("Filling out the phone number");
         return this;
@@ -114,7 +112,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpCity(String city) {
         waitTillIsClickable(cityTextField);
-        log.info("Wait till the element is clickable");
         cityTextField.sendKeys(city);
         log.info("Filling out the city");
         return this;
@@ -122,7 +119,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpStreetAddress(String town) {
         waitTillIsClickable(streetAddress2TextField);
-        log.info("Wait till the element is clickable");
         streetAddress2TextField.sendKeys(town);
         log.info("Filling out the street address line two");
         return this;
@@ -130,7 +126,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpAddress2(String area) {
         waitTillIsClickable(streetAddress1TextField);
-        log.info("Wait till the element is clickable");
         streetAddress1TextField.sendKeys(area);
         log.info("Filling out the street address");
         return this;
@@ -138,7 +133,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpAddress(String street) {
         waitTillIsClickable(adressTextField);
-        log.info("Wait till the element is clickable");
         adressTextField.sendKeys(street);
         log.info("Filling out the adress");
         return this;
@@ -146,7 +140,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpPasswordConf(String password) {
         waitTillIsClickable(confirmPassTextField);
-        log.info("Wait till the element is clickable");
         confirmPassTextField.sendKeys(password);
         log.info("Filling out the password confirmation");
         return this;
@@ -154,7 +147,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpPassword(String confirmPassword) {
         waitTillIsClickable(passTextField);
-        log.info("Wait till the element is clickable");
         passTextField.sendKeys(confirmPassword);
         log.info("Filling out the password");
         return this;
@@ -162,7 +154,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpEmail(String email) {
         waitTillIsClickable(emailTextField);
-        log.info("Wait till the element is clickable");
         emailTextField.sendKeys(email);
         log.info("Filling out the email");
         return this;
@@ -170,7 +161,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpJobTitle(String jobTitle) {
         waitTillIsClickable(jobTitleTextField);
-        log.info("Wait till the element is clickable");
         jobTitleTextField.sendKeys(jobTitle);
         log.info("Filling out the Job Title");
         return this;
@@ -178,7 +168,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpCompanyName(String companyName) {
         waitTillIsClickable(companyTextField);
-        log.info("Wait till the element is clickable");
         companyTextField.sendKeys(companyName);
         log.info("Filling out the Company Name");
         return this;
@@ -186,7 +175,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpLastName(String lastName) {
         waitTillIsClickable(lastNameTextField);
-        log.info("Wait till the element is clickable");
         lastNameTextField.sendKeys(lastName);
         log.info("Filling out the Last Name");
         return this;
@@ -194,7 +182,6 @@ public class SignUpPage extends BasePage {
 
     public SignUpPage fillUpFirstName(String firstName) {
         waitTillIsClickable(firstNameTextField);
-        log.info("Wait till the element is clickable");
         firstNameTextField.sendKeys(firstName);
         log.info("Filling out the First Name");
         return this;
@@ -202,7 +189,6 @@ public class SignUpPage extends BasePage {
 
     public SuccessRegister clickRegisterButton() {
         waitTillIsClickable(registerButton);
-        log.info("Wait till the element is clickable");
         registerButton.click();
         log.info("Clicking on the Register button");
         return new SuccessRegister();
