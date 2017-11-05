@@ -18,20 +18,18 @@ import static com.s3group.Utils.Properties.getBaseURL;
 
 public class TestBase extends MyLogger {
 
-
-    private int EXPLICITE_TIME_MAX_WAIT;
+    private int EXPLICITE_TIME_MAX_WAIT=5;
 
     @BeforeClass
     public  void startDriver() {
         Driver.getDriver();
         log.info("Initiating driver: {}", Properties.getBrowser());
-        Driver.getDriver().get(getBaseURL());
         log.info("Navigating to Home page: {}", getBaseURL());
+        Driver.getDriver().get(getBaseURL());
     }
 
     @BeforeTest
     public void setupDriver() {
-        EXPLICITE_TIME_MAX_WAIT = 5;
         log.info("Set explicit time to : {}", EXPLICITE_TIME_MAX_WAIT);
         Driver.getDriver().get(getBaseURL());
         log.info("Navigating to Home page: {}", getBaseURL());
@@ -50,7 +48,6 @@ public class TestBase extends MyLogger {
                     + Arrays.toString(testResult.getParameters()) + ".jpg"));
         }
     }
-
 
     @AfterClass
     public void quitDriver() {
