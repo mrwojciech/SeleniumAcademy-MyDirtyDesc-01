@@ -8,8 +8,7 @@ public class S3MainPage extends BasePage {
 
     @FindBy(className = "btn")
     private WebElement searchButton;
-    //  private Button searchButton;
-//TODO why it is not workin above!?
+  //TODO introduce Custom WebElements
 
     @FindBy(id = "search-term")
     private WebElement searchTextBox;

@@ -2,13 +2,10 @@ package com.s3group.Utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.ITestResult;
 
 import java.io.IOException;
 import java.io.InputStream;
-
-import static junit.framework.TestCase.fail;
-
-import org.testng.ITestResult;
 
 public class Properties {
 

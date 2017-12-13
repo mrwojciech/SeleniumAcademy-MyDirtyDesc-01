@@ -10,9 +10,9 @@ import static org.hamcrest.Matchers.is;
 
 public class CareersPage extends BasePage {
     private String CAREERS_TITLE = "Careers at S3 Group";
+
     @FindBy(css = "title")
     private WebElement title;
-
 
     public void assertIsPagePresent() {
 

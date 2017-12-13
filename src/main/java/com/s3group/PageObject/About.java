@@ -16,7 +16,7 @@ public class About extends BasePage {
     private WebElement title;
 
     public void assertIsPagePresent() {
-// dodac cos jeszcze do sprawdzenia czy strona jest obecna i do pozoastlych rowniez
+   // TODO dodac cos jeszcze do sprawdzenia czy strona jest obecna i do pozoastlych rowniez
 
         waitUntilTitleIsPresent(title, ABOUT_US_TITLE);
         assertThat(title.getAttribute("text"), is(equalTo((ABOUT_US_TITLE))));
